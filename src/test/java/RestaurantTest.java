@@ -68,4 +68,30 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<Part 3: Solution>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
+    @Test
+    public void ItemsAddedToMenu() {
+        restaurantDetails();
+        restaurant.addToMenu("Sizzling brownie",319);
+        int price = restaurant.totalCost();
+//      System.out.println(price);
+        assertEquals(707, price);
+    }
+    @Test
+    public void ItemsNotAddedToMenu() {
+        LocalTime openingTime = LocalTime.parse("10:30:00");
+        LocalTime closingTime = LocalTime.parse("22:00:00");
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+//      restaurant.addToMenu("Sweet corn soup",119);
+//      restaurant.addToMenu("Vegetable lasagne", 269);
+//      restaurant.addToMenu("Sizzling brownie",319);
+        int price = restaurant.totalCost();
+//        System.out.println(price);
+        assertEquals(0, price);
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<<<Part 3: Solution>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>//
+
 }
